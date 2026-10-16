@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111323">
+  <title>Pixel Dev Quest — Sua jornada de estudos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Pixel Dev Quest início"><span class="brand-icon">▣</span><span>PIXEL<span class="accent">DEV</span><small>QUEST / STUDY MODE</small></span></a>
+    <nav><a class="nav-link active" href="#painel">Painel</a><a class="nav-link" href="#trilhas">Trilhas</a><a class="nav-link" href="#desafio-semanal">Projeto semanal</a><a class="nav-link" href="#loja">Loja</a></nav>
+    <div class="player-chip"><div class="avatar">☺</div><div><b>PLAYER 01</b><small>NÍVEL <span id="levelTop">1</span></small></div><span class="coin">● <span id="coinsTop">0</span></span></div>
+  </header>
+
+  <main class="container">
+    <section class="hero panel" id="painel">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="blink">■</span> SUA AVENTURA COMEÇA AGORA</div>
+        <h1>SUBA DE<br><span class="pixel-accent">NÍVEL.</span><br>DOMINE O CÓDIGO.</h1>
+        <p>Pequenos passos todos os dias. Complete missões, ganhe moedas e construa seu futuro como dev.</p>
+        <a class="button primary" href="#desafios">▶ INICIAR MISSÕES</a>
+      </div>
+      <div class="hero-art" aria-label="Ilustração pixel art de um computador retrô">
+        <div class="sun"></div><div class="pixel-star star-one">✦</div><div class="pixel-star star-two">✧</div>
+        <div class="monitor"><div class="monitor-screen"><span>&gt; hello_dev</span><span class="code-line">console.log("bora estudar!")</span><span class="cursor">█</span></div><div class="monitor-neck"></div><div class="monitor-base"></div></div>
+        <div class="desk"></div><div class="plant">♣</div>
+        <div class="art-caption">BUILD YOUR FUTURE_</div>
+      </div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card panel"><div class="stat-icon purple">▤</div><div><small>SEQUÊNCIA ATUAL</small><strong><span id="streak">0</span> <em>DIAS</em></strong><p>Continue no ritmo!</p></div></article>
+      <article class="stat-card panel"><div class="stat-icon yellow">●</div><div><small>MOEDAS PIXEL</small><strong id="coinsStat">0</strong><p>Recompensas conquistadas</p></div></article>
+      <article class="stat-card panel"><div class="stat-icon green">↗</div><div><small>XP TOTAL</small><strong id="xpStat">0 XP</strong><p id="levelLabel">Nível 1 — Novato</p></div></article>
+      <article class="stat-card panel"><div class="stat-icon blue">✓</div><div><small>MISSÕES DE HOJE</small><strong><span id="doneCount">0</span><em> / 3</em></strong><p>Uma missão de cada vez</p></div></article>
+    </section>
+
+    <section class="section" id="desafios">
+      <div class="section-heading"><div><div class="eyebrow">DAILY QUESTS / 001</div><h2>MISSÕES DIÁRIAS <span class="heading-icon">✦</span></h2></div><div class="reset-note"><span class="live-dot"></span> NOVAS MISSÕES A CADA DIA</div></div>
+      <p class="section-desc">Complete as três missões para receber moedas. O progresso é salvo neste navegador.</p>
+      <div class="quest-list" id="questList"></div>
+      <div class="quest-footer"><span id="questMessage">Sua próxima conquista está a um passo.</span><span class="reward-total">RECOMPENSA MÁXIMA: <b>+60 ◉</b></span></div>
+    </section>
+
+    <section class="section" id="desafio-semanal">
+      <div class="section-heading"><div><div class="eyebrow">WEEKLY BOSS / 001</div><h2>DESAFIO DE PROJETO</h2></div><span class="pill">A CADA 7 DIAS</span></div>
+      <p class="section-desc">No sétimo dia da sua jornada, encare um projeto maior. Escolha uma ideia, construa uma versão funcional e registre o que aprendeu.</p>
+      <article class="weekly-card panel">
+        <div class="weekly-art" aria-hidden="true"><span>▣</span><i>★</i><b>&lt;/&gt;</b></div>
+        <div class="weekly-content">
+          <div class="weekly-meta"><span class="track-tag future">CHEFE SEMANAL</span><span id="weeklyDay">DIA 1 DE 7</span></div>
+          <h3 id="weeklyTitle">PROJETO: MINI PORTFÓLIO</h3>
+          <p id="weeklyDescription">Crie uma página pessoal com uma apresentação, suas habilidades e pelo menos um projeto. Use HTML e CSS; adicione JavaScript se quiser um desafio extra.</p>
+          <div class="weekly-checklist">
+            <label><input type="checkbox" id="weeklyPlan"> Planeje as seções e o visual</label>
+            <label><input type="checkbox" id="weeklyBuild"> Construa e teste o projeto</label>
+            <label><input type="checkbox" id="weeklyReflect"> Registre o que aprendeu</label>
+          </div>
+          <div class="weekly-bottom"><span id="weeklyReward">RECOMPENSA: <b>100 moedas + 100 XP</b></span><button class="button primary" id="weeklyClaim">CONCLUIR PROJETO</button></div>
+          <small class="weekly-footnote">O desafio semanal libera após 7 dias desde o primeiro registro de estudo. O progresso é salvo neste navegador.</small>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="trilhas">
+      <div class="section-heading"><div><div class="eyebrow">SKILL TREE / 002</div><h2>ÁRVORE DE HABILIDADES</h2></div><span class="pill">ESCOLHA SUA TRILHA</span></div>
+      <p class="section-desc">Avance do básico aos projetos reais. Marque os tópicos conforme aprender.</p>
+      <div class="track-tools panel">
+        <div>
+          <h3>GERENCIAR TRILHAS</h3>
+          <p>Adicione uma linguagem ou tecnologia que esteja estudando, ou remova uma trilha que não usa mais.</p>
+        </div>
+        <form id="addTrackForm" class="add-track-form">
+          <label class="sr-only" for="trackName">Nome da linguagem ou tecnologia</label>
+          <input id="trackName" name="trackName" maxlength="32" placeholder="Ex.: Java, SQL, React..." required>
+          <label class="sr-only" for="trackIcon">Sigla curta</label>
+          <input id="trackIcon" name="trackIcon" maxlength="3" placeholder="JS" aria-label="Sigla curta (opcional)">
+          <button class="button primary" type="submit">+ ADICIONAR</button>
+        </form>
+        <div id="customTrackList" class="custom-track-list" aria-live="polite"></div>
+      </div>
+      <div class="tracks-grid" id="tracksGrid">
+        <article class="track-card panel">
+          <div class="track-top"><div class="track-logo html-logo">5</div><div><h3>HTML5 + CSS3</h3><small>ARQUITETO DA WEB</small></div><span class="track-tag beginner">INICIANTE</span></div>
+          <p>Crie páginas, layouts responsivos e interfaces bonitas.</p><div class="progress-label"><span>PROGRESSO</span><b id="htmlPercent">0%</b></div><div class="progress"><span id="htmlBar"></span></div>
+          <div class="skill-list"><label><input type="checkbox" data-track="html" data-index="0"> Estrutura semântica HTML</label><label><input type="checkbox" data-track="html" data-index="1"> Tags, links e formulários</label><label><input type="checkbox" data-track="html" data-index="2"> CSS: cores, fontes e box model</label><label><input type="checkbox" data-track="html" data-index="3"> Flexbox e Grid</label><label><input type="checkbox" data-track="html" data-index="4"> Projeto: landing page</label></div>
+        </article>
+        <article class="track-card panel">
+          <div class="track-top"><div class="track-logo js-logo">JS</div><div><h3>JAVASCRIPT</h3><small>MESTRE DA LÓGICA</small></div><span class="track-tag beginner">INICIANTE</span></div>
+          <p>Dê vida às páginas com lógica, eventos e interatividade.</p><div class="progress-label"><span>PROGRESSO</span><b id="jsPercent">0%</b></div><div class="progress"><span id="jsBar"></span></div>
+          <div class="skill-list"><label><input type="checkbox" data-track="js" data-index="0"> Variáveis e tipos de dados</label><label><input type="checkbox" data-track="js" data-index="1"> Condições e loops</label><label><input type="checkbox" data-track="js" data-index="2"> Funções e arrays</label><label><input type="checkbox" data-track="js" data-index="3"> DOM e eventos</label><label><input type="checkbox" data-track="js" data-index="4"> Projeto: lista de tarefas</label></div>
+        </article>
+        <article class="track-card panel">
+          <div class="track-top"><div class="track-logo py-logo">Py</div><div><h3>PYTHON</h3><small>ALQUIMISTA DA AUTOMAÇÃO</small></div><span class="track-tag future">PRÓXIMA FASE</span></div>
+          <p>Aprenda a automatizar tarefas e resolver problemas.</p><div class="progress-label"><span>PROGRESSO</span><b id="pyPercent">0%</b></div><div class="progress"><span id="pyBar"></span></div>
+          <div class="skill-list"><label><input type="checkbox" data-track="py" data-index="0"> Sintaxe e variáveis</label><label><input type="checkbox" data-track="py" data-index="1"> If, elif e else</label><label><input type="checkbox" data-track="py" data-index="2"> Laços e coleções</label><label><input type="checkbox" data-track="py" data-index="3"> Funções e módulos</label><label><input type="checkbox" data-track="py" data-index="4"> Projeto: automação simples</label></div>
+        </article>
+        <article class="track-card panel">
+          <div class="track-top"><div class="track-logo git-logo">⌘</div><div><h3>GIT + GITHUB</h3><small>GUARDIÃO DO CÓDIGO</small></div><span class="track-tag beginner">ESSENCIAL</span></div>
+          <p>Versione seus projetos e monte um portfólio profissional.</p><div class="progress-label"><span>PROGRESSO</span><b id="gitPercent">0%</b></div><div class="progress"><span id="gitBar"></span></div>
+          <div class="skill-list"><label><input type="checkbox" data-track="git" data-index="0"> Repositório e commits</label><label><input type="checkbox" data-track="git" data-index="1"> Push, pull e clone</label><label><input type="checkbox" data-track="git" data-index="2"> Branches e merge</label><label><input type="checkbox" data-track="git" data-index="3"> README bem estruturado</label><label><input type="checkbox" data-track="git" data-index="4"> Publicar um projeto</label></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shop-section" id="loja">
+      <div class="section-heading"><div><div class="eyebrow">PIXEL MARKET / 003</div><h2>LOJA DE RECOMPENSAS</h2></div><div class="wallet">SALDO: <b>◉ <span id="shopCoins">0</span></b></div></div>
+      <p class="section-desc">Troque suas moedas por benefícios simbólicos. Você decide o que merece depois de estudar!</p>
+      <div class="shop-grid">
+        <article class="shop-item panel"><div class="item-art coffee">☕</div><span class="item-rarity common">COMUM</span><h3>PAUSA PARA CAFÉ</h3><p>Uma pausa de 15 minutos sem culpa.</p><div class="item-bottom"><b>30 ◉</b><button class="button buy-btn" data-item="coffee" data-cost="30">RESGATAR</button></div></article>
+        <article class="shop-item panel"><div class="item-art game">🎮</div><span class="item-rarity rare">RARO</span><h3>SESSÃO GAMER</h3><p>30 minutos para jogar depois da meta.</p><div class="item-bottom"><b>60 ◉</b><button class="button buy-btn" data-item="game" data-cost="60">RESGATAR</button></div></article>
+        <article class="shop-item panel"><div class="item-art movie">🍿</div><span class="item-rarity epic">ÉPICO</span><h3>NOITE DE FILME</h3><p>Uma sessão de cinema em casa.</p><div class="item-bottom"><b>100 ◉</b><button class="button buy-btn" data-item="movie" data-cost="100">RESGATAR</button></div></article>
+        <article class="shop-item panel"><div class="item-art custom">★</div><span class="item-rarity legendary">LENDÁRIO</span><h3>RECOMPENSA LIVRE</h3><p>Escolha um mimo especial para você.</p><div class="item-bottom"><b>150 ◉</b><button class="button buy-btn" data-item="custom" data-cost="150">RESGATAR</button></div></article>
+      </div>
+      <div class="inventory panel"><div><span class="inventory-icon">▣</span><div><b>INVENTÁRIO DO PLAYER</b><small>Recompensas resgatadas nesta jornada</small></div></div><span id="inventoryCount">0 itens</span></div>
+    </section>
+
+    <section class="motivation panel"><div class="motif">★</div><div><div class="eyebrow">SAVE POINT / MENSAGEM DO DIA</div><h2>VOCÊ NÃO PRECISA SABER TUDO HOJE.</h2><p>Você só precisa aprender um pouco mais do que sabia ontem. Consistência é seu maior power-up.</p></div><button class="button ghost" id="motivationBtn">OUTRA FRASE ↻</button></section>
+    <footer><span>PIXEL DEV QUEST <b>v1.0</b></span><span>FEITO PARA EVOLUIR, UM PIXEL POR VEZ <span class="footer-heart">♥</span></span></footer>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
